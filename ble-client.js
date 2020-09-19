@@ -30,17 +30,16 @@ class GateBLE {
     let options = {
       filters: [
         {
-          //name: "gateBLE"
+          name: "gateBLE"
         }
       ],
-      //optionalServices: [0xfff0]
-      acceptAllDevices: [true]
+      optionalServices: [0xfff0]
     };
     if (navigator.bluetooth == undefined) {
       alert("Sorry, Your device does not support Web BLE!");
       return;
     }
-    this.device = await navigator.bluetooth.requestDevice(options);
+    this.device = await navigator.bluetooth.requestDevice({acceptAllDevices:true});
     
     // debug device grab
     console.log(this.device);
