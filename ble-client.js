@@ -13,7 +13,8 @@ class GateBLE {
     );
     // characteristic.startNotifications();
     this.up = characteristic;
-    //debug verify if characteristic loaded
+    //debug verify if characteristic and service loaded
+    console.log(service);
     console.log(characteristic);
     
     await this.up.startNotifications();
