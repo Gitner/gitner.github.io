@@ -34,7 +34,7 @@ class GateBLE {
         }
       ],
       //optionalServices: [0xfff0]
-      acceptAllDevices: true
+      acceptAllDevices: [true]
     };
     if (navigator.bluetooth == undefined) {
       alert("Sorry, Your device does not support Web BLE!");
