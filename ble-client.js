@@ -13,7 +13,7 @@ class GateBLE {
     );
     // characteristic.startNotifications();
     this.up = characteristic;
-    //debug verify if characteristic and service loaded
+    // debug verify if characteristic and service loaded
     console.log(service);
     console.log(characteristic);
     
@@ -40,6 +40,10 @@ class GateBLE {
       return;
     }
     this.device = await navigator.bluetooth.requestDevice(options);
+    
+    // debug device grab
+    console.log(this.device);
+    
     if (!this.device) {
       throw "No device selected";
     }
