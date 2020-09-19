@@ -30,7 +30,8 @@ class GateBLE {
     let options = {
       filters: [
         {
-          name: "gateBLE"
+          acceptAllDevices: true
+          //name: "gateBLE"
         }
       ],
       optionalServices: [0xfff0]
