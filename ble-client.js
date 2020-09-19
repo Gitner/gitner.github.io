@@ -30,7 +30,6 @@ class GateBLE {
     let options = {
       filters: [
         {
-          acceptAllDevices: true
           //name: "gateBLE"
         }
       ],
