@@ -13,9 +13,6 @@ class GateBLE {
     );
     // characteristic.startNotifications();
     this.up = characteristic;
-    // debug verify if characteristic and service loaded
-    console.log(service);
-    console.log(characteristic);
     
     await this.up.startNotifications();
 
@@ -30,7 +27,7 @@ class GateBLE {
     let options = {
       filters: [
         {
-          name: "gateBLE"
+          name: "gateBLE|RPiZeroW"
         }
       ],
       optionalServices: [0xfff0]
@@ -39,7 +36,7 @@ class GateBLE {
       alert("Sorry, Your device does not support Web BLE!");
       return;
     }
-    this.device = await navigator.bluetooth.requestDevice({acceptAllDevices:true});
+    this.device = await navigator.bluetooth.requestDevice(options);
     
     // debug device grab
     console.log(this.device);
