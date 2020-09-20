@@ -27,10 +27,11 @@ class GateBLE {
     let options = {
       filters: [
         {
-          name: "RPiZeroW"
+          //name: "RPiZeroW"
+          services: 0xfff0
         }
       ],
-      optionalServices: [0xfff0]
+      //optionalServices: [0xfff0]
     };
     if (navigator.bluetooth == undefined) {
       alert("Sorry, Your device does not support Web BLE!");
