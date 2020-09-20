@@ -29,10 +29,7 @@ class GateBLE {
       return;
     }
     this.device = await navigator.bluetooth.requestDevice({filters: [{services: [0xfff0]}]});
-    
-    // debug device grab
-    console.log(this.device);
-    
+        
     if (!this.device) {
       throw "No device selected";
     }
