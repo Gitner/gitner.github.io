@@ -24,18 +24,11 @@ class GateBLE {
 
   /* request connection to a gateBLE device */
   async request() {
-    let options = {
-      filters: [
-        {
-          services: 0xfff0
-        }
-      ]
-    };
     if (navigator.bluetooth == undefined) {
       alert("Sorry, Your device does not support Web BLE!");
       return;
     }
-    this.device = await navigator.bluetooth.requestDevice(options);
+    this.device = await navigator.bluetooth.requestDevice({filters: {services: 0xfff0}});
     
     // debug device grab
     console.log(this.device);
