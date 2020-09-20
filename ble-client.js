@@ -27,7 +27,7 @@ class GateBLE {
     let options = {
       filters: [
         {
-          //name: "RPiZeroW"
+          name: "RPiZeroW",
           services: 0xfff0
         }
       ],
