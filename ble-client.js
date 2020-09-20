@@ -28,7 +28,7 @@ class GateBLE {
       alert("Sorry, Your device does not support Web BLE!");
       return;
     }
-    this.device = await navigator.bluetooth.requestDevice({filters: [{services: [fff0]}]});
+    this.device = await navigator.bluetooth.requestDevice({filters: [{name: ['RPiZeroW']}, {services: [fff0]}]});
     
     // debug device grab
     console.log(this.device);
