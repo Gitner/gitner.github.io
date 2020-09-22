@@ -2,21 +2,30 @@ class GateBLE {
   constructor() {
     this.device = null;
     this.up = null;
+    this.down = null;
     this.onDisconnected = this.onDisconnected.bind(this);
   }
 
   /* the UP characteristic providing up capability */
   async setUpCharacteristic() {
     const service = await this.device.gatt.getPrimaryService(0xfff0);
-    const characteristic = await service.getCharacteristic(
+    const UPcharacteristic = await service.getCharacteristic(
       "d7e84cb2-ff37-4afc-9ed8-5577aeb8454c"
     );
-    // characteristic.startNotifications();
-    this.up = characteristic;
+    const DWNcharacteristic = await service.getCharacteristic(
+      "d7e84cb2-ff37-4afc-9ed8-5577aeb8454d"
+    );
+    this.up = UPcharacteristic;
+    this.down = DWNcharacteristic;
     
     await this.up.startNotifications();
+    await this.down.startNotifications();
 
     this.up.addEventListener(
+      "characteristicvaluechanged",
+      handleUpStatusChanged
+    );
+    this.down.addEventListener(
       "characteristicvaluechanged",
       handleUpStatusChanged
     );
@@ -48,11 +57,22 @@ class GateBLE {
   async readUp() {
     await this.up.readValue();
   }
-
+  
   /* change UP state */
   async writeUp(data) {
     await this.up.writeValue(Uint8Array.of(data));
     await this.readUp();
+  }
+  
+  /* read DOWN state */
+  async readDown() {
+    await this.down.readValue();
+  }
+
+  /* change DOWN state */
+  async writeDown(data) {
+    await this.down.writeValue(Uint8Array.of(data));
+    await this.readDown();
   }
 
   /* disconnect from peripheral */
