@@ -15,6 +15,7 @@ class GateBLE {
     const DWNcharacteristic = await service.getCharacteristic(
       "d7e84cb2-ff37-4afc-9ed8-5577aeb8454d"
     );
+    
     this.up = UPcharacteristic;
     this.down = DWNcharacteristic;
     
@@ -25,9 +26,10 @@ class GateBLE {
       "characteristicvaluechanged",
       handleUpStatusChanged
     );
+    
     this.down.addEventListener(
       "characteristicvaluechanged",
-      handleUpStatusChanged
+      handleDownStatusChanged
     );
   }
 
