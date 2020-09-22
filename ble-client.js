@@ -26,11 +26,11 @@ class GateBLE {
       "characteristicvaluechanged",
       handleUpStatusChanged
     );
-    
-    this.down.addEventListener(
-      "characteristicvaluechanged",
-      handleDownStatusChanged
-    );
+    /*non necessario?*/
+    //this.down.addEventListener(
+    //  "characteristicvaluechanged",
+    //  handleDownStatusChanged
+    //);
   }
 
   /* request connection to a gateBLE device */
