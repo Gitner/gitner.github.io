@@ -122,9 +122,10 @@
         <button id="btn-connect" class="btn">Connect</button>
       </div>
       <div id="container" class="hidden">
-        <label class="btn-light"
-          ><input type="checkbox" id="toggle" />
-          <div></div>
+        <label class="btn-up"><input type="checkbox" id="up" />
+        <label class="btn-down"><input type="checkbox" id="down" />  
+      <div>
+    </div>
         </label>
         <div id="button">
           <button id="btn-disconnect" onclick="disconnect()" class="btn">
@@ -158,14 +159,14 @@
     if (status) {
       for (let ray of rays) {
         ray.style.setProperty("display", "block");
-        let toggle = document.getElementById("toggle");
+        let up = document.getElementById("up");
       }
-      toggle.checked = true;
+      up.checked = true;
     } else {
       for (let ray of rays) {
         ray.style.setProperty("display", "none");
       }
-      toggle.checked = false;
+      up.checked = false;
     }
   }
 
@@ -183,7 +184,7 @@
   }
 
   var gateBLE = new GateBLE();
-  var toggle = document.getElementById("toggle");
+  var up = document.getElementById("up");
 
   /* connect to peripheral, load data and add event listeners */
   document
@@ -195,18 +196,18 @@
         await gateBLE.setUpCharacteristic();
         document.getElementById("not-connected").classList.add("hidden");
 
-        toggle.addEventListener("change", e => {
+        up.addEventListener("change", e => {
           if (e.target.checked) {
             gateBLE.writeUp(1);
-            toggle.disabled = true;
+            up.disabled = true;
             setTimeout(() => {
-              toggle.disabled = false;
+              up.disabled = false;
             }, 1000);
           } else {
             gateBLE.writeUp(0);
-            toggle.disabled = true;
+            up.disabled = true;
             setTimeout(() => {
-              toggle.disabled = false;
+              up.disabled = false;
             }, 1000);
           }
         });
