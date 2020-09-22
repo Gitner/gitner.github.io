@@ -213,6 +213,22 @@
           }
         });
 
+	down.addEventListener("change", e => {
+          if (e.target.checked) {
+            gateBLE.writeDown(1);
+            down.disabled = true;
+            setTimeout(() => {
+              down.disabled = false;
+            }, 1000);
+          } else {
+            gateBLE.writeDown(0);
+            down.disabled = true;
+            setTimeout(() => {
+              down.disabled = false;
+            }, 1000);
+          }
+        });
+
         document.getElementById("container").classList.remove("hidden");
       } catch (error) {
         console.log(error.message);
