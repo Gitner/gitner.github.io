@@ -24,13 +24,13 @@ a {
   color: #878787;
   display: block;
   font-weight: bold;
-  font-size: 30vh;
-  line-height: 40vh;
+  font-size: 20vh;
+  line-height: 30vh;
   text-decoration: none;
   margin: 5vh;
   position: relative;
-  width: 40vh;
-  height: 40vh;
+  width: 30vh;
+  height: 30vh;
 }
 a:before {
   background: #fff;
