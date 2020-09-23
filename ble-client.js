@@ -21,17 +21,18 @@ class GateBLE {
     
     await this.up.startNotifications();
     await this.down.startNotifications();
-
+  
+    /*non necessarie?
     this.up.addEventListener(
       "characteristicvaluechanged",
       handleUpStatusChanged
     );
-    /*non necessario?*/
-    //this.down.addEventListener(
-    //  "characteristicvaluechanged",
-    //  handleDownStatusChanged
-    //);
-  }
+
+    this.down.addEventListener(
+      "characteristicvaluechanged",
+      handleDownStatusChanged
+    );
+  }*/
 
   /* request connection to a gateBLE device */
   async request() {
