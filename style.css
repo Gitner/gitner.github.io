@@ -12,9 +12,11 @@ body {
   text-align: center;
   color: white;
 }
+
 a {
   color: cadetblue;
 }
+
 h1,
 .btn {
   margin: 1rem;
@@ -36,18 +38,8 @@ h1 {
   background: none;
 }
 
-.lamp {
-  width: 40%;
-  min-width: 325px;
-  max-width: 430px;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
 
-.on,
-.rays {
+.on {
   display: none;
 }
 
@@ -108,10 +100,6 @@ footer {
 @media only screen and (max-device-width: 600px) {
   body {
     font-size: 40px;
-  }
-  .lamp {
-    width: 80%;
-    max-width: 80%;
   }
 
   #not-connected > button {
