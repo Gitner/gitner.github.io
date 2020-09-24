@@ -23,7 +23,7 @@
   /* Disconnect from peripheral and update UI */
   function disconnect() {
     gateBLE.disconnect();
-    document.getElementById("up").classList.remove("hidden");
+    document.getElementById("up").classList.add("hidden");
     document.getElementById("down").classList.add("hidden");
   }
 
@@ -40,9 +40,11 @@
         await gateBLE.connect();
         await gateBLE.setUpCharacteristic();
         document.getElementById("connect").classList.add("hidden");
+        document.getElementById("up").classList.remove("hidden");
+        document.getElementById("down").classList.remove("hidden");
 
         up.addEventListener("click", e => {
-          if (e.target.checked) {
+          //if (e.target.checked) {
             gateBLE.writeUp(1);
             /* valido per il toggle
             up.disabled = true;
@@ -77,7 +79,7 @@
           }*/
         });
 
-        document.getElementById("container").classList.remove("hidden");
+        //document.getElementById("container").classList.remove("hidden");
       } catch (error) {
         console.log(error.message);
       }
