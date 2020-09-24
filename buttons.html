@@ -11,3 +11,69 @@
   </ul>
 </body>
 </html>
+<script>
+  /* helper function to decode message sent from peripheral */
+  function decode(buf) {
+    let dec = new TextDecoder("utf-8");
+    return dec.decode(buf);
+  }
+
+  /* Disconnect from peripheral and update UI */
+  function disconnect() {
+    gateBLE.disconnect();
+    document.getElementById("not-connected").classList.remove("hidden");
+    document.getElementById("container").classList.add("hidden");
+  }
+
+  var gateBLE = new GateBLE();
+  var up = document.getElementById("up");
+  var down = document.getElementById("down");
+  
+  /* connect to peripheral, load data and add event listeners */
+  document
+    .getElementById("btn-connect")
+    .addEventListener("click", async event => {
+      try {
+        await gateBLE.request();
+        await gateBLE.connect();
+        await gateBLE.setUpCharacteristic();
+        document.getElementById("not-connected").classList.add("hidden");
+
+        up.addEventListener("change", e => {
+          if (e.target.checked) {
+            gateBLE.writeUp(1);
+            up.disabled = true;
+            setTimeout(() => {
+              up.disabled = false;
+            }, 1000);
+          } else {
+            gateBLE.writeUp(0);
+            up.disabled = true;
+            setTimeout(() => {
+              up.disabled = false;
+            }, 1000);
+          }
+        });
+
+	down.addEventListener("change", e => {
+          if (e.target.checked) {
+            gateBLE.writeDown(1);
+            down.disabled = true;
+            setTimeout(() => {
+              down.disabled = false;
+            }, 1000);
+          } else {
+            gateBLE.writeDown(0);
+            down.disabled = true;
+            setTimeout(() => {
+              down.disabled = false;
+            }, 1000);
+          }
+        });
+
+        document.getElementById("container").classList.remove("hidden");
+      } catch (error) {
+        console.log(error.message);
+      }
+    });
+</script>
