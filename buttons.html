@@ -7,8 +7,9 @@
 </head>
 <body>
   <ul>
-    <li><a href="#">ᐃ</a></li>
-    <li><a href="#">ᐁ</a></li>
+    <li id="up"><a href="#">ᐃ</a></li>
+    <li id="down"><a href="#">ᐁ</a></li>
+    <li id="connect"><a href="#">B</a></li>
   </ul>
 </body>
 </html>
@@ -22,8 +23,8 @@
   /* Disconnect from peripheral and update UI */
   function disconnect() {
     gateBLE.disconnect();
-    document.getElementById("not-connected").classList.remove("hidden");
-    document.getElementById("container").classList.add("hidden");
+    document.getElementById("up").classList.remove("hidden");
+    document.getElementById("down").classList.add("hidden");
   }
 
   var gateBLE = new GateBLE();
@@ -32,44 +33,48 @@
   
   /* connect to peripheral, load data and add event listeners */
   document
-    .getElementById("btn-connect")
+    .getElementById("connect")
     .addEventListener("click", async event => {
       try {
         await gateBLE.request();
         await gateBLE.connect();
         await gateBLE.setUpCharacteristic();
-        document.getElementById("not-connected").classList.add("hidden");
+        document.getElementById("connect").classList.add("hidden");
 
-        up.addEventListener("change", e => {
+        up.addEventListener("click", e => {
           if (e.target.checked) {
             gateBLE.writeUp(1);
+            /* valido per il toggle
             up.disabled = true;
             setTimeout(() => {
               up.disabled = false;
             }, 1000);
           } else {
             gateBLE.writeUp(0);
+            /* valido per il toggle
             up.disabled = true;
             setTimeout(() => {
               up.disabled = false;
             }, 1000);
-          }
+          }*/
         });
 
-	down.addEventListener("change", e => {
-          if (e.target.checked) {
+        down.addEventListener("click", e => {
+          //if (e.target.checked) {
             gateBLE.writeDown(1);
+            /* valido per il toggle
             down.disabled = true;
             setTimeout(() => {
               down.disabled = false;
             }, 1000);
-          } else {
+            } else {
             gateBLE.writeDown(0);
+            /* valido per il toggle
             down.disabled = true;
             setTimeout(() => {
               down.disabled = false;
             }, 1000);
-          }
+          }*/
         });
 
         document.getElementById("container").classList.remove("hidden");
