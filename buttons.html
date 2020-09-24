@@ -40,8 +40,6 @@
         await gateBLE.connect();
         await gateBLE.setUpCharacteristic();
         document.getElementById("connect").classList.add("hidden");
-        document.getElementById("up").classList.remove("hidden");
-        document.getElementById("down").classList.remove("hidden");
 
         up.addEventListener("click", e => {
           //if (e.target.checked) {
@@ -79,7 +77,8 @@
           }*/
         });
 
-        //document.getElementById("container").classList.remove("hidden");
+        document.getElementById("up").classList.remove("hidden");
+        document.getElementById("down").classList.remove("hidden");
       } catch (error) {
         console.log(error.message);
       }
