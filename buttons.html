@@ -7,8 +7,8 @@
 </head>
 <body>
   <ul>
-    <li id="up"><a href="#">ᐃ</a></li>
-    <li id="down"><a href="#">ᐁ</a></li>
+    <li id="up" class="hidden"><a href="#">ᐃ</a></li>
+    <li id="down" class="hidden"><a href="#">ᐁ</a></li>
     <li id="connect"><a href="#">B</a></li>
   </ul>
 </body>
@@ -30,8 +30,6 @@
   const gateBLE = new GateBLE();
   const up = document.getElementById("up");
   const down = document.getElementById("down");
-  up.classList.add("hidden");
-  down.classList.add("hidden");
   
   /* connect to peripheral, load data and add event listeners */
   document
