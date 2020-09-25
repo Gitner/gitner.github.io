@@ -43,6 +43,7 @@
 
         up.addEventListener("click", e => {
           //if (e.target.checked) {
+            gateBLE.writeDown(0);
             gateBLE.writeUp(1);
             /* valido per il toggle
             up.disabled = true;
@@ -61,6 +62,7 @@
 
         down.addEventListener("click", e => {
           //if (e.target.checked) {
+            gateBLE.writeUp(0);
             gateBLE.writeDown(1);
             /* valido per il toggle
             down.disabled = true;
