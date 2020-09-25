@@ -42,41 +42,19 @@
         document.getElementById("connect").classList.add("hidden");
 
         up.addEventListener("click", e => {
-          //if (e.target.checked) {
-            gateBLE.writeDown(0);
-            gateBLE.writeUp(1);
-            /* valido per il toggle
-            up.disabled = true;
-            setTimeout(() => {
-              up.disabled = false;
-            }, 1000);
-          } else {
+          gateBLE.writeDown(0);
+          gateBLE.writeUp(1);
+          setTimeout(() => {
             gateBLE.writeUp(0);
-            /* valido per il toggle
-            up.disabled = true;
-            setTimeout(() => {
-              up.disabled = false;
-            }, 1000);
-          }*/
+          }, 27000);
         });
 
         down.addEventListener("click", e => {
-          //if (e.target.checked) {
-            gateBLE.writeUp(0);
-            gateBLE.writeDown(1);
-            /* valido per il toggle
-            down.disabled = true;
-            setTimeout(() => {
-              down.disabled = false;
-            }, 1000);
-            } else {
+          gateBLE.writeUp(0);
+          gateBLE.writeDown(1);
+          setTimeout(() => {
             gateBLE.writeDown(0);
-            /* valido per il toggle
-            down.disabled = true;
-            setTimeout(() => {
-              down.disabled = false;
-            }, 1000);
-          }*/
+          }, 27000);
         });
 
         document.getElementById("up").classList.remove("hidden");
