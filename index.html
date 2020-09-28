@@ -42,7 +42,7 @@
         await gateBLE.setUpCharacteristic();
         document.getElementById("connect").classList.add("hidden");
 
-        up.addEventListener("click", e => {
+        up.addEventListener("click", async e => {
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
           //debug read event
@@ -54,7 +54,7 @@
           }, 27000);
         });
 
-        down.addEventListener("click", e => {
+        down.addEventListener("click", async e => {
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
           //debug read event
