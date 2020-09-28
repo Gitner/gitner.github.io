@@ -45,9 +45,9 @@ a:before {
   bottom: -18px;
   z-index: -1;
 }
-a:visited {
+/*a:visited {
   color: #a7a7a7;
-}
+}*/
 a:hover {
   color: hsl(30, 70%, 50%);
 }
