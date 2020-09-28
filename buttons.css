@@ -60,22 +60,9 @@ a:active {
 .cyan {
   color:#15aabf;
 }
-.material-icons {
+.material {
   font-family: 'Material Icons';
-  /*font-weight: normal;*/
   color:#15aabf;
-  /*font-style: normal;
   font-size: 15vh;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;*/
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+  line-height: 30vh;
 }
