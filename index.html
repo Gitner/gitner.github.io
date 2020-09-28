@@ -41,26 +41,26 @@
         await gateBLE.connect();
         await gateBLE.setUpCharacteristic();
         document.getElementById("connect").classList.add("hidden");
-
+        //aggiunto async per leggere retUp
         up.addEventListener("click", async e => {
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
           //debug read event
           var retUp;
           retUp = await gateBLE.readUp();
-          console.log(retUp);
+          console.log(decode(retUp));
           setTimeout(() => {
             gateBLE.writeUp(0);
           }, 27000);
         });
-
+        //aggiunto async per leggere retDown
         down.addEventListener("click", async e => {
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
           //debug read event
           var retDown;
           retDown = await gateBLE.readDown();
-          console.log(retDown);
+          console.log(decode(retDown));
           setTimeout(() => {
             gateBLE.writeDown(0);
           }, 27000);
