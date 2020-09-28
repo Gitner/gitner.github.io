@@ -20,18 +20,8 @@ class GateBLE {
     this.down = DWNcharacteristic;
     
     await this.up.startNotifications();
-    await this.down.startNotifications();
-  
-    /*non necessarie?
-    this.up.addEventListener(
-      "characteristicvaluechanged",
-      handleUpStatusChanged
-    );
-
-    this.down.addEventListener(
-      "characteristicvaluechanged",
-      handleDownStatusChanged
-    );*/
+    await this.down.startNotifications(); 
+ 
   }
 
   /* request connection to a gateBLE device */
