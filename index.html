@@ -46,7 +46,8 @@
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
           //debug read event
-          console.log(await gateBLE.readUp());
+          var retUp = await gateBLE.readUp();
+          console.log(retUp);
           setTimeout(() => {
             gateBLE.writeUp(0);
           }, 27000);
@@ -56,7 +57,8 @@
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
           //debug read event
-          console.log(await gateBLE.readDown());
+          var retDown = await gateBLE.readDown();
+          console.log(retDown);
           setTimeout(() => {
             gateBLE.writeDown(0);
           }, 27000);
