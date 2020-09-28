@@ -45,7 +45,7 @@
         up.addEventListener("click", e => {
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
-          //debug
+          //debug read event
           console.log(gateBLE.readUp());
           setTimeout(() => {
             gateBLE.writeUp(0);
@@ -55,7 +55,7 @@
         down.addEventListener("click", e => {
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
-          //debug
+          //debug read event
           console.log(gateBLE.readDown());
           setTimeout(() => {
             gateBLE.writeDown(0);
