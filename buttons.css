@@ -62,7 +62,7 @@ a:active {
 }
 .material-icons {
   font-family: 'Material Icons';
-  font-weight: normal;
+  /*font-weight: normal;*/
   color:#15aabf;
   /*font-style: normal;
   font-size: 15vh;
