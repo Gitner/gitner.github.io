@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Buttons</title>
+  <title>Gate-Ble</title>
   <link rel="stylesheet" href="ble-style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   <script src="ble-client.js"></script>
@@ -46,7 +46,8 @@
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
           //debug read event
-          var retUp = await gateBLE.readUp();
+          var retUp;
+          retUp = await gateBLE.readUp();
           console.log(retUp);
           setTimeout(() => {
             gateBLE.writeUp(0);
@@ -57,7 +58,8 @@
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
           //debug read event
-          var retDown = await gateBLE.readDown();
+          var retDown;
+          retDown = await gateBLE.readDown();
           console.log(retDown);
           setTimeout(() => {
             gateBLE.writeDown(0);
