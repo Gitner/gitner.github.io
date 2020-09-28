@@ -57,12 +57,7 @@ a:active {
 .hidden {
   display: none;
 }
-.cyan {
-  color:#15aabf;
-}
 .material {
   font-family: 'Material Icons';
   color:#15aabf;
-  font-size: 15vh;
-  line-height: 30vh;
 }
