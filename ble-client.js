@@ -51,10 +51,9 @@ class GateBLE {
     return await this.up.readValue().readUInt8();
   }
   
-  /* change UP state */
+  /* write UP state */
   async writeUp(data) {
     await this.up.writeValue(Uint8Array.of(data));
-    //await this.readUp();
   }
   
   /* read DOWN state */
@@ -62,10 +61,9 @@ class GateBLE {
     return await this.down.readValue().readUInt8();
   }
 
-  /* change DOWN state */
+  /* write DOWN state */
   async writeDown(data) {
     await this.down.writeValue(Uint8Array.of(data));
-    //await this.readDown();
   }
 
   /* disconnect from peripheral */
