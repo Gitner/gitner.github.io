@@ -58,7 +58,7 @@ class GateBLE {
   
   /* read DOWN state */
   async readDown() {
-    return await this.down.readValue()[0]);
+    return await this.down.readValue()[0];
   }
 
   /* write DOWN state */
