@@ -48,7 +48,7 @@ class GateBLE {
 
   /* read UP state */
   async readUp() {
-    return await this.up.readValue();
+    console.log(await this.up.readValue());
   }
   
   /* write UP state */
