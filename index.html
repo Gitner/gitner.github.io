@@ -34,18 +34,19 @@
         await gateBLE.request();
         await gateBLE.connect();
         await gateBLE.setUpCharacteristic();
-        await gateBLE.readUp();
         document.getElementById("connect").classList.add("hidden");
-        up.addEventListener("click", e => {
+        up.addEventListener("click", async e => {
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
+          await gateBLE.readUp();
           setTimeout(() => {
             gateBLE.writeUp(0);
           }, 27000);
         });
-        down.addEventListener("click", e => {
+        down.addEventListener("click", async e => {
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
+          await gateBLE.readDown();
           setTimeout(() => {
             gateBLE.writeDown(0);
           }, 27000);
