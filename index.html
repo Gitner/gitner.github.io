@@ -34,6 +34,7 @@
         await gateBLE.request();
         await gateBLE.connect();
         await gateBLE.setUpCharacteristic();
+        await gateBLE.readUp();
         document.getElementById("connect").classList.add("hidden");
         up.addEventListener("click", e => {
           gateBLE.writeDown(0);
