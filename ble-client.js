@@ -58,7 +58,7 @@ class GateBLE {
   
   /* read DOWN state */
   async readDown() {
-    console.log(Uint8Array.of(await this.up.readValue())[0]);
+    console.log(Uint8Array.from(await this.up.readValue()));
   }
 
   /* write DOWN state */
