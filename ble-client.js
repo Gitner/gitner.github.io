@@ -48,24 +48,22 @@ class GateBLE {
 
   /* read UP state */
   async readUp() {
-    console.log(JSON.stringify(await this.up.readValue()));
+    await this.up.readValue();
   }
   
   /* write UP state */
   async writeUp(data) {
     await this.up.writeValue(Uint8Array.of(data));
-    console.dir(await this.up.readValue());
   }
   
   /* read DOWN state */
   async readDown() {
-    console.log(JSON.stringify(await this.down.readValue()));
+    await this.down.readValue();
   }
 
   /* write DOWN state */
   async writeDown(data) {
     await this.down.writeValue(Uint8Array.of(data));
-    console.dir(await this.down.readValue());
   }
 
   /* disconnect from peripheral */
