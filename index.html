@@ -38,16 +38,10 @@
         up.addEventListener("click", e => {
           gateBLE.writeDown(0);
           gateBLE.writeUp(1);
-          setTimeout(() => {
-            gateBLE.writeUp(0);
-          }, 27000);
         });
         down.addEventListener("click", e => {
           gateBLE.writeUp(0);
           gateBLE.writeDown(1);
-          setTimeout(() => {
-            gateBLE.writeDown(0);
-          }, 27000);
         });
         document.getElementById("up").classList.remove("hidden");
         document.getElementById("down").classList.remove("hidden");
