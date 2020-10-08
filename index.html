@@ -15,6 +15,18 @@
 </body>
 </html>
 <script>
+  /* manage up characteristic status change */
+  function handleUpStatusChanged(event) {
+    let status = event.target.value.getUint8(0);
+    console.log('Up:' + status);
+  }
+
+  /* manage down characteristic status change */
+  function handleDownStatusChanged(event) {
+    let status = event.target.value.getUint8(0);
+    console.log('Down:' + status);
+  }
+  
   /* Disconnect from peripheral and update UI */
   function disconnect() {
     gateBLE.disconnect();
