@@ -6,7 +6,7 @@ class GateBLE {
     this.onDisconnected = this.onDisconnected.bind(this);
   }
 
-  /* the UP characteristic providing up capability */
+  /* the GATE characteristic providing up capability */
   async setGATECharacteristic() {
     const service = await this.device.gatt.getPrimaryService(0xfff0);
     const GATEcharacteristic = await service.getCharacteristic(
@@ -20,7 +20,7 @@ class GateBLE {
     /* check if gate state is changed */
     this.gate.addEventListener(
       "characteristicvaluechanged",
-      handleUpStatusChanged
+      handleGateStatusChanged
     );
     
   }
