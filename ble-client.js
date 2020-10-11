@@ -7,7 +7,7 @@ class GateBLE {
   }
 
   /* the GATE characteristic providing up capability */
-  async setGATECharacteristic() {
+  async setGateCharacteristic() {
     const service = await this.device.gatt.getPrimaryService(0xfff0);
     const GATEcharacteristic = await service.getCharacteristic(
       "d7e84cb2-ff37-4afc-9ed8-5577aeb8454c"
