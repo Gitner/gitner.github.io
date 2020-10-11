@@ -15,16 +15,10 @@
 </body>
 </html>
 <script>
-  /* manage up characteristic status change */
-  function handleUpStatusChanged(event) {
+  /* manage gate characteristic status change */
+  function handleGateStatusChanged(event) {
     let status = event.target.value.getUint8(0);
-    console.log('Up:' + status);
-  }
-
-  /* manage down characteristic status change */
-  function handleDownStatusChanged(event) {
-    let status = event.target.value.getUint8(0);
-    console.log('Down:' + status);
+    console.log('Gate:' + status);
   }
   
   /* Disconnect from peripheral and update UI */
@@ -45,15 +39,13 @@
       try {
         await gateBLE.request();
         await gateBLE.connect();
-        await gateBLE.setUpCharacteristic();
+        await gateBLE.setGateCharacteristic();
         document.getElementById("connect").classList.add("hidden");
         up.addEventListener("click", e => {
-          gateBLE.writeDown(0);
-          gateBLE.writeUp(1);
+          gateBLE.writeGate(1);
         });
         down.addEventListener("click", e => {
-          gateBLE.writeUp(0);
-          gateBLE.writeDown(1);
+          gateBLE.writeGate(0);
         });
         document.getElementById("up").classList.remove("hidden");
         document.getElementById("down").classList.remove("hidden");
