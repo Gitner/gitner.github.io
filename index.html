@@ -18,7 +18,7 @@
   /* manage gate characteristic status change */
   function handleGateStatusChanged(event) {
     let status = event.target.value.getUint8(0);
-    console.log('Gate:' + status);
+    console.log('Status:' + status);
   }
   
   /* Disconnect from peripheral and update UI */
