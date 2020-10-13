@@ -1,8 +1,7 @@
 class GateBLE {
   constructor() {
     this.device = null;
-    this.up = null;
-    this.down = null;
+    this.gate = null;
     this.onDisconnected = this.onDisconnected.bind(this);
   }
 
