@@ -20,13 +20,13 @@
   function handleGateStatusChanged(event) {
     let status = event.target.value.getUint8(0);
     if (status < 2) {
-      if (!document.getElementById("up").classList.contains("hidden")) document.getElementById("up").classList.add("hidden");
-      if (!document.getElementById("down").classList.contains("hidden")) document.getElementById("down").classList.add("hidden");
-      if (document.getElementById("stop").classList.contains("hidden")) document.getElementById("stop").classList.remove("hidden");
+      if (!up.classList.contains("hidden"))   up.classList.add("hidden");
+      if (!down.classList.contains("hidden")) down.classList.add("hidden");
+      if (stop.classList.contains("hidden"))  stop.classList.remove("hidden");
     } else {
-      if (!document.getElementById("stop").classList.contains("hidden")) document.getElementById("stop").classList.add("hidden");
-      if (document.getElementById("up").classList.contains("hidden")) document.getElementById("up").classList.remove("hidden");
-      if (document.getElementById("down").classList.contains("hidden")) document.getElementById("down").classList.remove("hidden");
+      if (!stop.classList.contains("hidden")) stop.classList.add("hidden");
+      if (up.classList.contains("hidden"))    up.classList.remove("hidden");
+      if (down.classList.contains("hidden"))  down.classList.remove("hidden");
     }
     //console.log('Status:' + status);
   }
@@ -41,7 +41,8 @@
   const gateBLE = new GateBLE();
   const up = document.getElementById("up");
   const down = document.getElementById("down");
-  
+  const stop = document.getElementById("stop");
+
   /* connect to peripheral, load data and add event listeners */
   document
     .getElementById("connect")
