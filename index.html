@@ -60,6 +60,9 @@
         down.addEventListener("click", e => {
           gateBLE.writeGate(0);
         });
+        stop.addEventListener("click", e => {
+          gateBLE.writeGate(2);
+        });
       } catch (error) {
         console.log(error.message);
       }
