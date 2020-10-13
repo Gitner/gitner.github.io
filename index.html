@@ -9,6 +9,7 @@
 <body>
   <ul>
     <li id="up" class="hidden"><a href="#">ᐃ</a></li>
+    <li id="stop" class="material hidden"><a href="#">stop</a></li>
     <li id="down" class="hidden"><a href="#">ᐁ</a></li>
     <li id="connect"><a class="material" href="#">bluetooth</a></li>
   </ul>
@@ -18,7 +19,16 @@
   /* manage gate characteristic status change */
   function handleGateStatusChanged(event) {
     let status = event.target.value.getUint8(0);
-    console.log('Status:' + status);
+    if (status < 2) {
+      if (!document.getElementById("up").classList.contains("hidden")) document.getElementById("up").classList.add("hidden");
+      if (!document.getElementById("down").classList.contains("hidden")) document.getElementById("down").classList.add("hidden");
+      if (document.getElementById("stop").classList.contains("hidden")) document.getElementById("stop").classList.remove("hidden");
+    } else {
+      if (!document.getElementById("stop").classList.contains("hidden")) document.getElementById("stop").classList.add("hidden");
+      if (document.getElementById("up").classList.contains("hidden")) document.getElementById("up").classList.remove("hidden");
+      if (document.getElementById("down").classList.contains("hidden")) document.getElementById("down").classList.remove("hidden");
+    }
+    //console.log('Status:' + status);
   }
   
   /* Disconnect from peripheral and update UI */
