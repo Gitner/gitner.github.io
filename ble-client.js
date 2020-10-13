@@ -22,7 +22,6 @@ class GateBLE {
       "characteristicvaluechanged",
       handleGateStatusChanged
     );
-    
   }
 
   /* request connection to a gateBLE device */
